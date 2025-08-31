@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import SafeIcon from '../common/SafeIcon';
-import * as FiIcons from 'react-icons/fi';
+import React, { useState } from 'react'
+import { motion } from 'framer-motion'
+import { supabase } from '../lib/supabase'
+import SafeIcon from '../common/SafeIcon'
+import * as FiIcons from 'react-icons/fi'
+import toast from 'react-hot-toast'
 
-const { FiUser, FiMail, FiPhone, FiCreditCard, FiSend, FiCheckCircle } = FiIcons;
+const { FiUser, FiMail, FiPhone, FiCreditCard, FiSend, FiCheckCircle } = FiIcons
 
 const Membership = () => {
   const [formData, setFormData] = useState({
@@ -12,39 +14,63 @@ const Membership = () => {
     email: '',
     phone: '',
     preferredProduct: ''
-  });
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  })
+  const [isSubmitted, setIsSubmitted] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
+    setFormData({ ...formData, [e.target.name]: e.target.value })
+  }
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    
-    // Create Google Form URL with pre-filled data
-    const googleFormUrl = `https://docs.google.com/forms/d/e/1FAIpQLSf3YourFormIdHere/viewform?usp=pp_url&entry.123456789=${encodeURIComponent(formData.name)}&entry.987654321=${encodeURIComponent(formData.nationalId)}&entry.456789123=${encodeURIComponent(formData.email)}&entry.789123456=${encodeURIComponent(formData.phone)}&entry.321654987=${encodeURIComponent(formData.preferredProduct)}`;
-    
-    // Open Google Form in new tab
-    window.open(googleFormUrl, '_blank');
-    
-    setIsSubmitted(true);
-    
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({
-        name: '',
-        nationalId: '',
-        email: '',
-        phone: '',
-        preferredProduct: ''
-      });
-    }, 3000);
-  };
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    setIsLoading(true)
+
+    try {
+      const { data, error } = await supabase
+        .from('members_kadcos2024')
+        .insert([
+          {
+            name: formData.name,
+            national_id: formData.nationalId,
+            email: formData.email,
+            phone: formData.phone,
+            preferred_product: formData.preferredProduct,
+            status: 'pending'
+          }
+        ])
+
+      if (error) {
+        if (error.code === '23505') { // Unique constraint violation
+          toast.error('A member with this email or national ID already exists')
+        } else {
+          throw error
+        }
+        return
+      }
+
+      setIsSubmitted(true)
+      toast.success('Application submitted successfully!')
+
+      // Reset form after 3 seconds
+      setTimeout(() => {
+        setIsSubmitted(false)
+        setFormData({
+          name: '',
+          nationalId: '',
+          email: '',
+          phone: '',
+          preferredProduct: ''
+        })
+      }, 3000)
+
+    } catch (error) {
+      console.error('Error submitting application:', error)
+      toast.error('Failed to submit application. Please try again.')
+    } finally {
+      setIsLoading(false)
+    }
+  }
 
   const benefits = [
     'Access to competitive loan products',
@@ -53,7 +79,7 @@ const Membership = () => {
     'Community networking opportunities',
     'Dividend sharing from profits',
     'Emergency financial support'
-  ];
+  ]
 
   const products = [
     'Regular Savings Account',
@@ -64,7 +90,7 @@ const Membership = () => {
     'School Fees Loan',
     'Construction Loan',
     'Emergency Loan'
-  ];
+  ]
 
   return (
     <div className="min-h-screen pt-20">
@@ -241,10 +267,11 @@ const Membership = () => {
 
                 <button
                   type="submit"
-                  className="w-full bg-primary text-dark py-4 rounded-lg font-marcellus font-semibold hover:bg-yellow-600 transition-colors duration-300 flex items-center justify-center space-x-2"
+                  disabled={isLoading}
+                  className="w-full bg-primary text-dark py-4 rounded-lg font-marcellus font-semibold hover:bg-yellow-600 transition-colors duration-300 flex items-center justify-center space-x-2 disabled:opacity-50"
                 >
-                  <span>Submit Application</span>
-                  <SafeIcon icon={FiSend} />
+                  <span>{isLoading ? 'Submitting...' : 'Submit Application'}</span>
+                  {!isLoading && <SafeIcon icon={FiSend} />}
                 </button>
               </form>
             ) : (
@@ -323,7 +350,7 @@ const Membership = () => {
         </div>
       </section>
     </div>
-  );
-};
+  )
+}
 
-export default Membership;
+export default Membership

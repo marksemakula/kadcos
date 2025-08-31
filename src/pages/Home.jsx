@@ -76,7 +76,7 @@ const Home = () => {
               className="flex justify-center"
             >
               <img 
-                src="/images/kadcosprev copy.png" 
+                src="https://greta-preview.s3.us-east-2.amazonaws.com/assets/logo.svg" 
                 alt="KADCOS Logo" 
                 className="h-64 w-auto"
               />

@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import SafeIcon from '../common/SafeIcon';
-import * as FiIcons from 'react-icons/fi';
+import React, { useState } from 'react'
+import { Link, useLocation } from 'react-router-dom'
+import { motion } from 'framer-motion'
+import SafeIcon from '../common/SafeIcon'
+import * as FiIcons from 'react-icons/fi'
 
-const { FiMenu, FiX } = FiIcons;
+const { FiMenu, FiX, FiSettings } = FiIcons
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const location = useLocation();
+  const [isOpen, setIsOpen] = useState(false)
+  const location = useLocation()
 
   const navItems = [
     { name: 'Home', path: '/' },
@@ -17,9 +17,9 @@ const Navbar = () => {
     { name: 'Membership', path: '/membership' },
     { name: 'Blog', path: '/blog' },
     { name: 'Contact', path: '/contact' },
-  ];
+  ]
 
-  const isActive = (path) => location.pathname === path;
+  const isActive = (path) => location.pathname === path
 
   return (
     <nav className="bg-white shadow-lg sticky top-0 z-50">
@@ -52,11 +52,20 @@ const Navbar = () => {
                 {item.name}
               </Link>
             ))}
+            
             <Link
               to="/membership"
               className="bg-primary text-white px-6 py-2 rounded-full font-marcellus hover:bg-orange-500 transition-colors duration-300"
             >
               Join Now
+            </Link>
+
+            <Link
+              to="/admin"
+              className="text-gray-500 hover:text-secondary transition-colors duration-300 p-2"
+              title="Admin Login"
+            >
+              <SafeIcon icon={FiSettings} />
             </Link>
           </div>
 
@@ -101,12 +110,19 @@ const Navbar = () => {
               >
                 Join Now
               </Link>
+              <Link
+                to="/admin"
+                onClick={() => setIsOpen(false)}
+                className="block px-3 py-2 mt-2 text-gray-500 hover:text-secondary font-marcellus"
+              >
+                Admin Login
+              </Link>
             </div>
           </motion.div>
         )}
       </div>
     </nav>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar
