@@ -40,12 +40,12 @@ const Home = () => {
   // Array of partner logos using local images from public/images folder
   const partnerLogos = [
     "/images/Centenary.png",
-    "/images/holysee.jpg",
+    "/images/holysee.png",
     "/images/airtel.png",
     "/images/caritas.png",
     "/images/mtn.jpeg",
     "/images/undp.png",
-    "/images/bou.jpeg",
+    "/images/bou.png",
     "/images/dpf.png",
     "/images/fia.png",
     "/images/wcc.jpeg"
