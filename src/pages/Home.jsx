@@ -90,7 +90,7 @@ const Home = () => {
               className="flex justify-center"
             >
               <img 
-                src="/images/logo.svg"
+                src="/images/kadcos-logo-trsp.png"
                 alt="KADCOS Logo" 
                 className="h-64 w-auto"
               />

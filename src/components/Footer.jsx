@@ -16,9 +16,9 @@ const Footer = () => {
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center space-x-3 mb-4">
               <img 
-                src="https://greta-preview.s3.us-east-2.amazonaws.com/assets/logo.svg" 
+                src="/images/kadcos-logo-trsp.png" 
                 alt="KADCOS Logo" 
-                className="h-10 w-auto brightness-0 invert"
+                className="h-16 w-auto brightness-0 invert"
               />
               <div>
                 <h3 className="text-xl font-bold font-marcellus">KADCOS</h3>
@@ -89,7 +89,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <SafeIcon icon={FiMail} className="text-primary" />
-                <span className="text-gray-400 font-marcellus">kadcoslubaga.sacco@gmail.com</span>
+                <span className="text-gray-400 font-marcellus">admin@kadcos.org</span>
               </div>
               <div className="flex items-start space-x-3">
                 <SafeIcon icon={FiMapPin} className="text-primary mt-1" />
