@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import SafeIcon from '../common/SafeIcon';
 import * as FiIcons from 'react-icons/fi';
+import { FaApple, FaGooglePlay } from 'react-icons/fa';
+import { motion } from 'framer-motion';
 
 const { FiPhone, FiMail, FiMapPin, FiClock } = FiIcons;
 
@@ -26,7 +28,38 @@ const Footer = () => {
             <p className="text-gray-400 mb-4 font-marcellus leading-relaxed">
               Financially empowering people of God in Kampala Archdiocese through cooperative effort and savings culture since 2007.
             </p>
-            <p className="text-sm text-gray-500 font-marcellus">ACTS 2:45-47</p>
+            <p className="text-sm text-gray-500 font-marcellus mb-4">ACTS 2:45-47</p>
+            
+            {/* Get the App Section */}
+            <div className="space-y-2">
+              <p className="text-gray-400 text-sm font-marcellus mb-2">
+                Coming to mobile app soon!
+              </p>
+              <div className="flex flex-wrap gap-2">
+                <motion.a
+                  whileHover={{ scale: 1.03 }}
+                  href="#"
+                  className="flex items-center justify-center space-x-2 bg-gray-700 hover:bg-gray-600 px-3 py-2 rounded transition-colors duration-300 w-36"
+                >
+                  <FaApple className="text-white text-lg" />
+                  <div className="text-left">
+                    <div className="text-xs text-gray-300">Download on</div>
+                    <div className="text-xs font-medium">App Store</div>
+                  </div>
+                </motion.a>
+                <motion.a
+                  whileHover={{ scale: 1.03 }}
+                  href="#"
+                  className="flex items-center justify-center space-x-2 bg-gray-700 hover:bg-gray-600 px-3 py-2 rounded transition-colors duration-300 w-36"
+                >
+                  <FaGooglePlay className="text-white text-lg" />
+                  <div className="text-left">
+                    <div className="text-xs text-gray-300">Get it on</div>
+                    <div className="text-xs font-medium">Google Play</div>
+                  </div>
+                </motion.a>
+              </div>
+            </div>
           </div>
 
           {/* Quick Links */}

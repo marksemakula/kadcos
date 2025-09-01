@@ -3,7 +3,7 @@ import React from 'react';
 const LogoCarousel = () => {
   // Array of partner logos (using placeholder URLs - replace with actual logos)
   const partnerLogos = [
-    "/images/Centenary.png",
+    "/images/Centenary.jpg",
     "/images/holysee.png",
     "/images/airtel.png",
     "/images/caritas.png",
