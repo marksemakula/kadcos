@@ -46,7 +46,7 @@ const AdminLogin = () => {
         <div>
           <div className="flex justify-center">
             <img 
-              src="https://greta-preview.s3.us-east-2.amazonaws.com/assets/logo.svg" 
+              src="/images/kadcos-logo-trsp1.png" 
               alt="KADCOS Logo" 
               className="h-16 w-auto"
             />
