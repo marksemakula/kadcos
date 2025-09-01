@@ -37,6 +37,20 @@ const Home = () => {
     { number: '2%', label: 'Monthly Interest' },
   ];
 
+  // Array of partner logos using local images from public/images folder
+  const partnerLogos = [
+    "/images/Centenary.png",
+    "/images/holysee.jpg",
+    "/images/airtel.png",
+    "/images/caritas.png",
+    "/images/mtn.jpeg",
+    "/images/undp.png",
+    "/images/bou.jpeg",
+    "/images/dpf.png",
+    "/images/fia.png",
+    "/images/wcc.jpeg"
+  ];
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -76,7 +90,7 @@ const Home = () => {
               className="flex justify-center"
             >
               <img 
-                src="https://greta-preview.s3.us-east-2.amazonaws.com/assets/logo.svg" 
+                src="/images/logo.svg"
                 alt="KADCOS Logo" 
                 className="h-64 w-auto"
               />
@@ -105,6 +119,70 @@ const Home = () => {
             ))}
           </div>
         </div>
+      </section>
+
+      {/* Logo Carousel Section */}
+      <section className="py-12 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl lg:text-4xl font-bold text-secondary mb-4 font-marcellus">
+              
+            </h2>
+            <p className="text-xl text-gray-600 font-marcellus max-w-3xl mx-auto">
+              We collaborate with communities & leading organizations to better serve our members.
+            </p>
+          </motion.div>
+          
+          {/* Carousel Container - Fixed for seamless looping */}
+          <div className="relative w-full overflow-hidden">
+            <div className="flex animate-scroll">
+              {/* Combine original and duplicated logos in a single continuous flex container */}
+              {[...partnerLogos, ...partnerLogos].map((logo, index) => (
+                <div key={index} className="flex-shrink-0 px-8">
+                  <img 
+                    src={logo} 
+                    alt={`Partner ${index % partnerLogos.length + 1}`} 
+                    className="h-12 w-auto opacity-80 hover:opacity-100 transition-opacity duration-300 object-contain"
+                  />
+                </div>
+              ))}
+            </div>
+            
+            {/* Gradient fade effects */}
+            <div className="pointer-events-none absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-white to-transparent"></div>
+            <div className="pointer-events-none absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-white to-transparent"></div>
+          </div>
+        </div>
+        
+        {/* Animation styles for seamless looping */}
+        <style>{`
+          @keyframes scroll {
+            0% {
+              transform: translateX(0);
+            }
+            100% {
+              transform: translateX(calc(-100% / 2));
+            }
+          }
+          .animate-scroll {
+            animation: scroll 30s linear infinite;
+            display: flex;
+            width: max-content;
+          }
+          .animate-scroll:hover {
+            animation-play-state: paused;
+          }
+          @media (prefers-reduced-motion: reduce) {
+            .animate-scroll {
+              animation: none;
+            }
+          }
+        `}</style>
       </section>
 
       {/* Services Section */}
