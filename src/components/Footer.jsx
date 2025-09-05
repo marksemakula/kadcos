@@ -8,12 +8,31 @@ import { motion } from 'framer-motion';
 const { FiPhone, FiMail, FiMapPin, FiClock } = FiIcons;
 
 const Footer = () => {
+  // Office locations data
+  const offices = [
+    {
+      name: "Lubaga Cathedral",
+      address: "Administration Building",
+      phone: "0783-077661"
+    },
+    {
+      name: "Mt. Carmel Busega Parish",
+      address: "Busega Catholic Parish",
+      phone: "0752-599221"
+    },
+    {
+      name: "Buyege Catholic Parish",
+      address: "Buyege Parish Office",
+      phone: "0772-455332"
+    }
+  ];
+
   return (
     <footer className="bg-gray-800 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
-          <div className="col-span-1 md:col-span-2">
+          <div className="col-span-1">
             <div className="flex items-center space-x-3 mb-4">
               <img 
                 src="/images/kadcos-logo-trsp.png" 
@@ -79,21 +98,33 @@ const Footer = () => {
             </ul>
           </div>
 
+          {/* Office Locations */}
+          <div>
+            <h4 className="text-lg font-semibold mb-4 font-marcellus">Our Offices</h4>
+            <div className="space-y-4">
+              {offices.map((office, index) => (
+                <div key={index} className="bg-gray-750 p-3 rounded-lg">
+                  <h5 className="font-medium text-primary font-marcellus">{office.name}</h5>
+                  <div className="flex items-start space-x-2 mt-1">
+                    <SafeIcon icon={FiMapPin} className="text-primary mt-0.5 flex-shrink-0" />
+                    <span className="text-gray-400 text-sm font-marcellus">{office.address}</span>
+                  </div>
+                  <div className="flex items-center space-x-2 mt-1">
+                    <SafeIcon icon={FiPhone} className="text-primary flex-shrink-0" />
+                    <span className="text-gray-400 text-sm font-marcellus">{office.phone}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
           {/* Contact Info */}
           <div>
             <h4 className="text-lg font-semibold mb-4 font-marcellus">Contact Info</h4>
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
-                <SafeIcon icon={FiPhone} className="text-primary" />
-                <span className="text-gray-400 font-marcellus">0783-077661</span>
-              </div>
-              <div className="flex items-center space-x-3">
                 <SafeIcon icon={FiMail} className="text-primary" />
                 <span className="text-gray-400 font-marcellus">admin@kadcos.org</span>
-              </div>
-              <div className="flex items-start space-x-3">
-                <SafeIcon icon={FiMapPin} className="text-primary mt-1" />
-                <span className="text-gray-400 font-marcellus">Lubaga Cathedral Administration Building</span>
               </div>
               <div className="flex items-start space-x-3">
                 <SafeIcon icon={FiClock} className="text-primary mt-1" />
