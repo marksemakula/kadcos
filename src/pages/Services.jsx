@@ -157,7 +157,7 @@ const Services = () => {
               Loan Products
             </h2>
             <p className="text-xl text-gray-600 font-marcellus max-w-3xl mx-auto">
-              Access credit facilities tailored to your specific needs
+              Access credit facilities tailored to your specific needs. Collateral is required for loans above 2.5m
             </p>
           </motion.div>
 
