@@ -301,7 +301,7 @@ const Contact = () => {
               {/* Office Image */}
               <div className="bg-white p-4 rounded-lg shadow-lg">
                 <img 
-                  src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
+                  src="/images/kadcos_lubaga_co_operative_society_cover.jpeg" 
                   alt="KADCOS Office" 
                   className="w-full h-64 object-cover rounded-lg"
                 />
