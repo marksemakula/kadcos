@@ -62,9 +62,13 @@ const About = () => {
               className="flex justify-center"
             >
               <img 
-                src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
+                src="/images/jakub-zerdzicki-ip7GFn5JqX8-unsplash.jpg" 
                 alt="Community Meeting" 
                 className="rounded-lg shadow-lg w-full h-96 object-cover"
+                onError={(e) => {
+                  e.target.onerror = null;
+                  e.target.src = "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80";
+                }}
               />
             </motion.div>
           </div>
@@ -159,7 +163,7 @@ const About = () => {
             >
               <h2 className="text-3xl font-bold mb-6 font-marcellus">Visit Our Office</h2>
               <p className="text-gray-300 mb-6 font-marcellus leading-relaxed">
-                Our office is conveniently located at Lubaga Cathedral Administration Building, making it easily accessible to our members and prospective clients.
+                Our office is conveniently located at Lubaga Cathedral Administration Building, easily accessible to our members and prospective clients.
               </p>
               <div className="space-y-4">
                 <div className="flex items-center space-x-3">
@@ -179,9 +183,13 @@ const About = () => {
               className="flex justify-center"
             >
               <img 
-                src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
-                alt="Office Building" 
+                src="/images/kadcos_lubaga_co_operative_society_cover.jpeg" 
+                alt="KADCOS Office Building" 
                 className="rounded-lg shadow-lg w-full h-96 object-cover"
+                onError={(e) => {
+                  e.target.onerror = null;
+                  e.target.src = "https://images.unsplash.com/photo-1580477667995-2b94f01c9516?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80";
+                }}
               />
             </motion.div>
           </div>
