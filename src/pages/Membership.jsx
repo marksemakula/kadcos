@@ -312,12 +312,6 @@ const Membership = () => {
                   <div className="bg-primary bg-opacity-10 p-1 rounded-full flex-shrink-0 mt-1">
                     <SafeIcon icon={FiCheckCircle} className="text-primary text-sm" />
                   </div>
-                  <span className="text-gray-700 font-marcellus">Must be a person of faith in the Catholic Church</span>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <div className="bg-primary bg-opacity-10 p-1 rounded-full flex-shrink-0 mt-1">
-                    <SafeIcon icon={FiCheckCircle} className="text-primary text-sm" />
-                  </div>
                   <span className="text-gray-700 font-marcellus">Valid National ID or Passport</span>
                 </div>
                 <div className="flex items-start space-x-3">
