@@ -27,7 +27,7 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-20">
           <Link to="/" className="flex items-center space-x-3">
             <img 
-              src="/images/kadcos-logo-trsp1.png" 
+              src="/images/KADCOS 4-04.svg" 
               alt="KADCOS Logo" 
               className="h-12 w-auto"
             />
