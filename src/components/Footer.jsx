@@ -109,11 +109,12 @@ const Footer = () => {
               <p className="text-gray-400 text-sm font-marcellus mb-3">
                 Coming to mobile app soon!
               </p>
-              <div className="flex flex-col gap-2">
+              {/* Changed to flex-row for horizontal layout */}
+              <div className="flex flex-row gap-2">
                 <motion.a
                   whileHover={{ scale: 1.03 }}
                   href="#"
-                  className="flex items-center justify-center space-x-2 bg-gray-700 hover:bg-gray-600 px-3 py-2 rounded transition-colors duration-300"
+                  className="flex items-center justify-center space-x-2 bg-gray-700 hover:bg-gray-600 px-3 py-2 rounded transition-colors duration-300 flex-1"
                 >
                   <FaApple className="text-white text-lg" />
                   <div className="text-left">
@@ -124,7 +125,7 @@ const Footer = () => {
                 <motion.a
                   whileHover={{ scale: 1.03 }}
                   href="#"
-                  className="flex items-center justify-center space-x-2 bg-gray-700 hover:bg-gray-600 px-3 py-2 rounded transition-colors duration-300"
+                  className="flex items-center justify-center space-x-2 bg-gray-700 hover:bg-gray-600 px-3 py-2 rounded transition-colors duration-300 flex-1"
                 >
                   <FaGooglePlay className="text-white text-lg" />
                   <div className="text-left">
