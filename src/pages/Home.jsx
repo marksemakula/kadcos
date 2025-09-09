@@ -53,8 +53,8 @@ const Home = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="hero-gradient py-20">
+      {/* Hero Section - Modified for consistent yellow and no gap */}
+      <section className="bg-[#FFB100] py-16 -mt-4"> {/* Changed to solid yellow and negative margin */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -65,7 +65,7 @@ const Home = () => {
               <h1 className="text-4xl lg:text-6xl font-bold text-secondary mb-6 font-marcellus">
                 Your Trusted <span className="text-white">Financial Partner</span>
               </h1>
-              <p className="text-xl text-gray-700 mb-8 font-marcellus leading-relaxed">
+              <p className="text-xl text-gray-800 mb-8 font-marcellus leading-relaxed">
                 Financially empowering people of God in Kampala Archdiocese through cooperative effort and savings culture since 2007.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
@@ -131,7 +131,7 @@ const Home = () => {
             className="text-center mb-12"
           >
             <h2 className="text-3xl lg:text-4xl font-bold text-secondary mb-4 font-marcellus">
-              
+              Our Partners
             </h2>
             <p className="text-xl text-gray-600 font-marcellus max-w-3xl mx-auto">
               We collaborate with communities & leading organizations to better serve our members.
