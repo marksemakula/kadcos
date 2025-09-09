@@ -35,7 +35,7 @@ const Footer = () => {
           <div className="col-span-1">
             <div className="flex items-center space-x-3 mb-4">
               <img 
-                src="/images/kadcos-logo-trsp.png" 
+                src="/images/kadcos-logo-trsp1.png" 
                 alt="KADCOS Logo" 
                 className="h-16 w-auto brightness-0 invert"
               />
